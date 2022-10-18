@@ -1,18 +1,16 @@
-import { useState, useEffect, ChangeEvent } from 'react';
-import { useSelector } from 'react-redux';
-import { Todo } from './types/todo';
-import { useAppDispatch } from './features/store/store';
-import { addTodo } from './features/slices/todoSlice';
-import { fetchTodos } from './features/slices/fetchedTodoSlice';
+import { Routes, Route } from 'react-router-dom';
+
+import Home from './components/home/home.component';
+import TodoList from './components/todoList/todo-list.component';
 
 const App = () => {
-  const [fetchedTodos, setFetchedTodos] = useState()
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    dispatch(fetchTodos());
-  }, [dispatch]);
-
-  return <></>;
+  return (
+    <>
+      <Routes>
+        <Route path='/' index element={<TodoList />}></Route>
+        {/* <Route path='/home' element={<Home />}></Route> */}
+      </Routes>
+    </>
+  );
 };
 export default App;

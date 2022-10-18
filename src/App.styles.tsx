@@ -18,16 +18,16 @@ export const MyContainer = styled(Container)({
 });
 
 export const ControlsContainer = styled(Container)({
-  display:'flex',
-  justifyContent:'space-around'
-})
+  display: 'flex',
+  justifyContent: 'space-around',
+});
 
 export const UtilChipsContainer = styled(Container)({
   display: 'flex',
 });
 
 export const MyList = styled(List)({
-  width: '80%',
+  width: '82%',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',

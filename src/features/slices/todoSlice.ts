@@ -1,18 +1,10 @@
-import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Todo } from '../../types/todo';
 import { RootState } from '../store/rootReducer';
 
-export const fetchAsyncTodos = createAsyncThunk(
-  'todos/fetchAsyncTodos',
-  async () => {
-    const response = await fetch('https://api.npoint.io/8f25f32b5ee71bc7666d');
-    const fetchedTodos: Todo[] = await response.json();
-    return fetchedTodos;
-  }
-);
 const initialState = [
   {
-    id: '1',
+    id: '12',
     title: 'Buy groceries',
     description: 'Buy milk, cola,bread',
     dueDate: '08/10/2022',
@@ -20,7 +12,7 @@ const initialState = [
     completed: false,
   },
   {
-    id: '2',
+    id: '23',
     title: 'Wash all dirty clothes',
     description: 'Remove the pink shirt',
     dueDate: '26/10/2022',
@@ -28,7 +20,7 @@ const initialState = [
     completed: true,
   },
   {
-    id: '3',
+    id: '35',
     title: 'Walk the dog',
     description: 'Go for a 30 min walk',
     dueDate: '12/11/2022',
@@ -36,7 +28,7 @@ const initialState = [
     completed: false,
   },
   {
-    id: '4',
+    id: '48',
     title: 'Cook dinner',
     description: 'Cook my favourite meal',
     dueDate: '03/12/2022',

@@ -1,12 +1,14 @@
 import { configureStore, Action } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook } from 'react-redux';
 import { useDispatch, useSelector } from 'react-redux';
+import thunkMiddleware from 'redux-thunk';
 import { ThunkAction } from 'redux-thunk';
 
 import rootReducer, { RootState } from './rootReducer';
 
 const store = configureStore({
   reducer: rootReducer,
+  middleware: [thunkMiddleware],
 });
 
 // if (process.env.NODE_ENV === 'development' && module.hot) {

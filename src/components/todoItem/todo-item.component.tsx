@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import { Todo } from '../types/todo';
-import { removeItem } from '../features/slices/todoSlice';
-import { useAppDispatch } from '../features/store/store';
+import { Todo } from '../../types/todo';
+import { removeItem } from '../../features/slices/todoSlice';
+import { useAppDispatch } from '../../features/store/store';
 
 import { ListItemText } from '@mui/material';
 import {
@@ -10,7 +10,7 @@ import {
   StatusChip,
   UtilChipsContainer,
   UtilsChip,
-} from '../App.styles';
+} from '../../App.styles';
 
 interface Props {
   todo: Todo;

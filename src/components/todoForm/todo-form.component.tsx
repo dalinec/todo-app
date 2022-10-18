@@ -1,14 +1,14 @@
 import { ChangeEvent, useState } from 'react';
-import { useAppDispatch } from '../features/store/store';
+import { useAppDispatch } from '../../features/store/store';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { validationSchema } from '../utils/validation';
+import { validationSchema } from '../../utils/validation';
 
-import Input from './todo-inputs/todo-title-input.component';
-import DescriptionInput from './todo-inputs/todo-desc-input.component';
-import TimeInput from './todo-inputs/todo-time-input.component';
-import DatePicker from './todo-inputs/todo-date-picker.component';
-import StatusPicker from './todo-inputs/status-picker/todo-status-picker.component';
+import Input from '../todoInputs/todo-title-input.component';
+import DescriptionInput from '../todoInputs/todo-desc-input.component';
+import TimeInput from '../todoInputs/todo-time-input.component';
+import DatePicker from '../todoInputs/todo-date-picker.component';
+import StatusPicker from '../todoInputs/status-picker/todo-status-picker.component';
 
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
@@ -16,11 +16,17 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import { addTodo } from '../features/slices/todoSlice';
+import { addTodo } from '../../features/slices/todoSlice';
 
 const TodoForm = () => {
   const dispatch = useAppDispatch();
 
+  const validation = validationSchema;
+
+  interface FormValues {
+    title: string;
+    description: string;
+  }
   const {
     register,
     handleSubmit,
@@ -34,11 +40,6 @@ const TodoForm = () => {
     console.log({ data });
     reset();
   };
-
-  interface FormValues {
-    title: string;
-    description: string;
-  }
 
   const initialState = {
     id: '',
